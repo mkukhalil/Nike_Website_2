@@ -1,0 +1,400 @@
+
+
+body{
+ font-family: Arial, Helvetica, sans-serif;
+ padding: 0%;
+ margin: 0%;
+  
+}
+/*First Row Start*/
+.first{
+    width: 1500px;
+    padding-top:  0.7%;
+     column-count: 2;
+     background-color: #F5F5F5;
+      
+}
+.jordan{
+     margin-left: 10%;
+}
+.toolbar ul{
+    margin-right: 8%;
+      text-align: end;    
+}
+.toolbar ul li{   
+   
+   
+    font-weight: 550 ;
+    font-size:13.7px;
+    display: inline;
+    list-style-type: none;
+}
+.toolbar li:not(:first-child)::before
+{
+    content: " | ";
+    margin: 5px;
+}
+ 
+/*First Row End*/
+ 
+
+.container{
+    width: 1369px;
+    float: left;
+    padding-left: 60px;
+    padding-right: 52px;
+    display: inline-flex;
+}
+.logo  {
+    width: 116px;
+    padding-top: 8px;
+    align-items: center;   
+}
+ .menu{
+    width: 1000px;
+ }
+.menu ul{
+    text-align: center;
+    font-size: 19px;
+    font-weight: 550;
+}
+.menu ul li{
+   
+    display: inline;
+    list-style-type: none;
+    padding-left: 25px;
+    
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.search{
+    width: 270px;
+    padding-top: 11px;
+}
+.search input[type=text]{
+    height: 35px;   
+    border-radius: 30px;
+    background-color: #F5F5F5;   
+    border: none;
+    text-align: center;
+}
+::placeholder{
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:large;
+    
+}
+.search1{
+    position: relative;
+    left: 35px;
+}
+.search2{
+    position: relative;
+    left: 22px;
+    font-size: 23px;
+}
+.search3{
+    position: relative;
+    left: 42px;
+    font-size: 23px;
+}
+
+.container1{
+    width: 1500px;
+    float: left;
+    display: inline-flex;
+    padding: 0%;
+    margin: 0%;
+}
+.img-one img{
+   width: 871px;
+}
+.img-two img{
+    width: 627px;
+ }
+.fourth{
+    width: 1369px;
+     text-align: center;
+    
+}
+.fourth h1{
+    font-size: 80px;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     font-weight: 500;
+     padding: 0%;
+    letter-spacing: -2px;
+    line-height: 25px;
+}
+.fourth p{
+    font-size: large;
+    margin: -1%;   
+}
+.btn button{
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 80px;
+    border-radius: 40px;
+   margin: 3%;
+}
+
+ 
+ .textbox-1{ 
+    width: 750px;
+    height: 500px;
+     background-image: url(../images/nike\ bags.jpg) ;
+     background-size: cover;
+
+}
+.text1 h1{
+    color: white;
+    position: absolute;
+    margin-top: 310px;
+    left: 45px;
+}
+.text1 h3{
+    color: white;
+    position: absolute;
+    margin-top: 275px;
+    left: 45px;
+    
+}
+.text1 button{
+    background-color: white;
+    color: black;
+    height: 40px;
+    width: 80px;
+    border-radius: 40px;
+    border: none;
+    position: absolute;
+    margin-top: 385px;
+    left: 45px;
+    font-weight: 700;
+  
+}
+ 
+.textbox-2{
+    height: 500px;
+    width: 750px;
+    background-image: url(/images/nike-just-do-it.jpg);
+    background-size: cover;
+    
+}
+.text2 h1{
+    color: white;
+    position: relative;
+    margin-top: -4px;
+    left: 45px
+}
+.text2 h3{
+    color: white;
+    position: relative;
+    margin-top: 277px;
+    left: 45px;
+    
+}
+.text2 button{
+    background-color: white;
+    color: black;
+    height: 40px;
+    width: 80px;
+    border-radius: 40px;
+    border: none;
+    position: relative;
+    margin-top: 20px;
+    left: 45px;
+    font-weight: 700;
+  
+}
+.textbox-3{
+    height: 500px;
+    width: 750px;
+    background-image: url(/images/nike\ runnnnig.jpg);
+    background-size: contain;
+  
+     
+}
+.text3 h1{
+    color: white;
+    position: absolute;
+    margin-top: 310px;
+    left: 45px;
+}
+.text3 h3{
+    color: white;
+    position: absolute;
+    margin-top: 275px;
+    left: 45px;
+    
+}
+.text3 button{
+    background-color: white;
+    color: black;
+    height: 40px;
+    width: 80px;
+    border-radius: 40px;
+    border: none;
+    position: absolute;
+    margin-top: 385px;
+    left: 45px;
+    font-weight: 700;
+  
+}
+
+.textbox-4{
+    height: 500px;
+    width: 750px;
+    background-image: url(/images/nike-soccer\ new.jpg);
+    background-size: cover;
+   
+}
+.text4 h1{
+    color: white;
+    position: relative;
+    margin-top: -4px;
+    left: 45px
+}
+.text4 h3{
+    color: white;
+    position: relative;
+    margin-top: 277px;
+    left: 45px;
+    
+}
+.text4 button{
+    background-color: white;
+    color: black;
+    height: 40px;
+    width: 80px;
+    border-radius: 40px;
+    border: none;
+    position: relative;
+    margin-top: 20px;
+    left: 45px;
+    font-weight: 700;
+  
+}
+ 
+.img-three img{
+    width: 1500px;
+}
+.fifth{
+    width: 1369px;
+}
+.fifth h1{
+    font-size: 45px;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     font-weight: 600;
+     padding: 0%;
+    letter-spacing: 0px;
+    line-height: 25px;
+}
+.classic{
+    float: left;
+    display: ruby;
+    text-align: center; 
+}
+.vomero{
+    width: 290px;
+    background-color: #F5F5F5;
+    margin: 3px;
+}
+.airmax{
+    width: 290px;
+    background-color: #F5F5F5;
+    padding-top: 67px;
+    margin: 3px;
+}
+.airjordan{
+    width: 290px;
+    background-color: #F5F5F5;
+    padding-top: 56px;
+    margin: 3px;
+}
+.dunk{
+    width: 290px;
+    background-color: #F5F5F5;
+    padding-top: 67px;
+    margin: 3px;
+}
+.airforce{
+    width: 290px;
+    background-color: #F5F5F5;
+    padding-top: 58px;
+    margin: 3px;
+}
+.featured{
+    padding-left: 140px;
+    padding-top: 70px;
+    padding-right: 70px;
+    padding-bottom: 70px;
+}
+.shoes{
+    padding-top: 70px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 70px;
+}
+.clothing{
+    padding-top: 70px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 70px;
+}
+.kids{
+    padding-top: 70px;
+    padding-left: 70px;
+    padding-bottom: 70px;
+}
+.alltags{
+    display: contents;
+}
+.alltags h3{
+    color: rgb(150, 148, 148);
+}
+hr{
+    width: 90%;
+     
+     
+}
+.footer{
+    display: contents;
+}
+.footer h4{
+    color: rgb(150, 148, 148);
+    line-height: 12px;
+}
+.resources{
+    padding-top: 40px;
+    padding-right: 70px;
+    padding-bottom: 70px
+}
+.help{
+    padding-top: 40px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 70px;
+}
+.company{
+    padding-top: 40px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 70px;
+}
+.promotions{
+    padding-top: 40px;
+    padding-left: 70px;
+    padding-bottom: 70px;
+}
+.endbar{
+    display: contents;
+     
+}
+.endbar h4{
+    color: rgb(150, 148, 148);
+    padding-right: 25px;
+    padding-left: 0px;
+    padding-bottom: 70px;
+}
