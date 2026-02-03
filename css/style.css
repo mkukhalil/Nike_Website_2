@@ -1,400 +1,442 @@
+* {
+    box-sizing: border-box;
+}
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
 
-body{
- font-family: Arial, Helvetica, sans-serif;
- padding: 0%;
- margin: 0%;
-  
+/* Common Container Utility */
+.main-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
 }
-/*First Row Start*/
-.first{
-    width: 1500px;
-    padding-top:  0.7%;
-     column-count: 2;
-     background-color: #F5F5F5;
-      
-}
-.jordan{
-     margin-left: 10%;
-}
-.toolbar ul{
-    margin-right: 8%;
-      text-align: end;    
-}
-.toolbar ul li{   
-   
-   
-    font-weight: 550 ;
-    font-size:13.7px;
-    display: inline;
-    list-style-type: none;
-}
-.toolbar li:not(:first-child)::before
-{
-    content: " | ";
-    margin: 5px;
-}
- 
-/*First Row End*/
- 
 
-.container{
-    width: 1369px;
-    float: left;
-    padding-left: 60px;
-    padding-right: 52px;
-    display: inline-flex;
+/* First Row Start */
+.first {
+    width: 100%;
+    background-color: #F5F5F5;
+    padding: 10px 0;
 }
-.logo  {
-    width: 116px;
-    padding-top: 8px;
-    align-items: center;   
+
+.first-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
- .menu{
-    width: 1000px;
- }
-.menu ul{
-    text-align: center;
-    font-size: 19px;
+
+.jordan img {
+    height: 24px;
+    width: auto;
+    display: block;
+}
+
+.toolbar ul {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.toolbar ul li {
     font-weight: 550;
-}
-.menu ul li{
-   
-    display: inline;
+    font-size: 12px;
+    display: inline-block;
     list-style-type: none;
-    padding-left: 25px;
-    
+    color: #111;
 }
-a{
+
+.toolbar li:not(:first-child)::before {
+    content: "|";
+    margin: 0 10px;
+    color: #111;
+}
+
+/* First Row End */
+
+/* Navigation/Header */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    height: 60px;
+    /* Fixed height for navbar consistency */
+}
+
+.logo {
+    width: 80px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 100%;
+    display: block;
+}
+
+.menu {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.menu ul li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0 15px;
+    font-weight: 550;
+    font-size: 16px;
+}
+
+a {
     text-decoration: none;
     color: black;
 }
-.search{
-    width: 270px;
-    padding-top: 11px;
-}
-.search input[type=text]{
-    height: 35px;   
-    border-radius: 30px;
-    background-color: #F5F5F5;   
-    border: none;
-    text-align: center;
-}
-::placeholder{
-    font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:large;
-    
-}
-.search1{
-    position: relative;
-    left: 35px;
-}
-.search2{
-    position: relative;
-    left: 22px;
-    font-size: 23px;
-}
-.search3{
-    position: relative;
-    left: 42px;
-    font-size: 23px;
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: auto;
 }
 
-.container1{
-    width: 1500px;
-    float: left;
-    display: inline-flex;
-    padding: 0%;
-    margin: 0%;
+.search-bar-wrapper {
+    position: relative;
 }
-.img-one img{
-   width: 871px;
+
+.search input[type=text] {
+    height: 40px;
+    width: 180px;
+    border-radius: 20px;
+    background-color: #F5F5F5;
+    border: none;
+    padding-left: 40px;
+    /* Space for icon */
+    font-size: 16px;
 }
-.img-two img{
-    width: 627px;
- }
-.fourth{
-    width: 1369px;
-     text-align: center;
-    
+
+.search-bar-wrapper .fa-magnifying-glass {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
 }
-.fourth h1{
-    font-size: 80px;
-     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-     font-weight: 500;
-     padding: 0%;
+
+.search-icons i {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* Generic Flex Rows */
+.container1 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Images Row */
+.img-one,
+.img-two {
+    width: 50%;
+    /* Equal width or proportional */
+}
+
+.img-one img,
+.img-two img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Hero Text Section */
+.hero-text-section {
+    width: 100%;
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hero-text-section h1 {
+    font-size: 72px;
+    font-family: 'Impact', sans-serif;
+    /* Fallback safe font */
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 0.9;
     letter-spacing: -2px;
-    line-height: 25px;
 }
-.fourth p{
-    font-size: large;
-    margin: -1%;   
+
+.hero-text-section p {
+    font-size: 18px;
+    margin: 20px 0;
 }
-.btn button{
+
+.btn button {
     background-color: black;
     color: white;
     height: 40px;
-    width: 80px;
-    border-radius: 40px;
-   margin: 3%;
-}
-
- 
- .textbox-1{ 
-    width: 750px;
-    height: 500px;
-     background-image: url(../images/nike\ bags.jpg) ;
-     background-size: cover;
-
-}
-.text1 h1{
-    color: white;
-    position: absolute;
-    margin-top: 310px;
-    left: 45px;
-}
-.text1 h3{
-    color: white;
-    position: absolute;
-    margin-top: 275px;
-    left: 45px;
-    
-}
-.text1 button{
-    background-color: white;
-    color: black;
-    height: 40px;
-    width: 80px;
-    border-radius: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
     border: none;
-    position: absolute;
-    margin-top: 385px;
-    left: 45px;
-    font-weight: 700;
-  
+    cursor: pointer;
+    font-weight: bold;
 }
- 
-.textbox-2{
+
+/* Grid for Promo Boxes */
+.promo-grid {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+.textbox {
+    flex: 1;
     height: 500px;
-    width: 750px;
-    background-image: url(/images/nike-just-do-it.jpg);
+    /* Keep fixed height for the look */
     background-size: cover;
-    
-}
-.text2 h1{
-    color: white;
+    background-position: center;
     position: relative;
-    margin-top: -4px;
-    left: 45px
-}
-.text2 h3{
-    color: white;
-    position: relative;
-    margin-top: 277px;
-    left: 45px;
-    
-}
-.text2 button{
-    background-color: white;
-    color: black;
-    height: 40px;
-    width: 80px;
-    border-radius: 40px;
-    border: none;
-    position: relative;
-    margin-top: 20px;
-    left: 45px;
-    font-weight: 700;
-  
-}
-.textbox-3{
-    height: 500px;
-    width: 750px;
-    background-image: url(/images/nike\ runnnnig.jpg);
-    background-size: contain;
-  
-     
-}
-.text3 h1{
-    color: white;
-    position: absolute;
-    margin-top: 310px;
-    left: 45px;
-}
-.text3 h3{
-    color: white;
-    position: absolute;
-    margin-top: 275px;
-    left: 45px;
-    
-}
-.text3 button{
-    background-color: white;
-    color: black;
-    height: 40px;
-    width: 80px;
-    border-radius: 40px;
-    border: none;
-    position: absolute;
-    margin-top: 385px;
-    left: 45px;
-    font-weight: 700;
-  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 40px;
 }
 
-.textbox-4{
-    height: 500px;
-    width: 750px;
-    background-image: url(/images/nike-soccer\ new.jpg);
-    background-size: cover;
-   
+.textbox.bg-bags {
+    background-image: url('../images/nike bags.jpg');
 }
-.text4 h1{
+
+.textbox.bg-justdoit {
+    background-image: url('/images/nike-just-do-it.jpg');
+}
+
+.textbox.bg-running {
+    background-image: url('/images/nike runnnnig.jpg');
+}
+
+.textbox.bg-soccer {
+    background-image: url('/images/nike-soccer new.jpg');
+}
+
+.text-content {
     color: white;
-    position: relative;
-    margin-top: -4px;
-    left: 45px
+    text-align: left;
 }
-.text4 h3{
-    color: white;
-    position: relative;
-    margin-top: 277px;
-    left: 45px;
-    
+
+.text-content h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
 }
-.text4 button{
+
+.text-content h1 {
+    margin: 5px 0 20px;
+    font-size: 32px;
+}
+
+.text-content button {
     background-color: white;
     color: black;
     height: 40px;
-    width: 80px;
-    border-radius: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
     border: none;
-    position: relative;
-    margin-top: 20px;
-    left: 45px;
     font-weight: 700;
-  
+    cursor: pointer;
 }
- 
-.img-three img{
-    width: 1500px;
+
+/* Full Width Banner */
+.banner-img img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
-.fifth{
-    width: 1369px;
+
+/* Classics Section */
+.fifth {
+    padding: 40px 20px;
+    text-align: center;
 }
-.fifth h1{
-    font-size: 45px;
-     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-     font-weight: 600;
-     padding: 0%;
-    letter-spacing: 0px;
-    line-height: 25px;
+
+.fifth h1 {
+    font-size: 40px;
+    font-family: 'Anton', sans-serif;
+    margin: 0;
 }
-.classic{
-    float: left;
-    display: ruby;
-    text-align: center; 
+
+.classic-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    margin: 0 auto;
 }
-.vomero{
-    width: 290px;
+
+.classic-item {
     background-color: #F5F5F5;
-    margin: 3px;
+    width: calc(20% - 20px);
+    /* 5 items row */
+    min-width: 200px;
+    text-align: center;
+    padding-bottom: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
-.airmax{
-    width: 290px;
-    background-color: #F5F5F5;
-    padding-top: 67px;
-    margin: 3px;
+
+.classic-item:hover {
+    transform: scale(1.02);
 }
-.airjordan{
-    width: 290px;
-    background-color: #F5F5F5;
-    padding-top: 56px;
-    margin: 3px;
+
+.classic-item img {
+    width: 100%;
+    height: auto;
 }
-.dunk{
-    width: 290px;
-    background-color: #F5F5F5;
-    padding-top: 67px;
-    margin: 3px;
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
 }
-.airforce{
-    width: 290px;
-    background-color: #F5F5F5;
-    padding-top: 58px;
-    margin: 3px;
+
+.footer-column {
+    margin-bottom: 30px;
 }
-.featured{
-    padding-left: 140px;
-    padding-top: 70px;
-    padding-right: 70px;
-    padding-bottom: 70px;
+
+.footer-column h3 {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
-.shoes{
-    padding-top: 70px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-bottom: 70px;
+
+.footer-column h4 {
+    color: #7e7e7e;
+    font-size: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
-.clothing{
-    padding-top: 70px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-bottom: 70px;
+
+.footer-column h4:hover {
+    color: black;
 }
-.kids{
-    padding-top: 70px;
-    padding-left: 70px;
-    padding-bottom: 70px;
+
+.hr-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
-.alltags{
-    display: contents;
+
+/* Bottom Bar */
+.endbar {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 40px;
+    max-width: 1440px;
+    margin: 0 auto;
+    gap: 20px;
 }
-.alltags h3{
-    color: rgb(150, 148, 148);
+
+.endbar h4 {
+    color: #7e7e7e;
+    font-size: 12px;
+    margin: 0;
+    cursor: pointer;
 }
-hr{
-    width: 90%;
-     
-     
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 960px) {
+    .menu {
+        display: none;
+        /* Hide menu for now or replace with hamburger if implemented */
+    }
+
+    .classic-item {
+        width: calc(33.33% - 20px);
+    }
 }
-.footer{
-    display: contents;
-}
-.footer h4{
-    color: rgb(150, 148, 148);
-    line-height: 12px;
-}
-.resources{
-    padding-top: 40px;
-    padding-right: 70px;
-    padding-bottom: 70px
-}
-.help{
-    padding-top: 40px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-bottom: 70px;
-}
-.company{
-    padding-top: 40px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-bottom: 70px;
-}
-.promotions{
-    padding-top: 40px;
-    padding-left: 70px;
-    padding-bottom: 70px;
-}
-.endbar{
-    display: contents;
-     
-}
-.endbar h4{
-    color: rgb(150, 148, 148);
-    padding-right: 25px;
-    padding-left: 0px;
-    padding-bottom: 70px;
+
+@media screen and (max-width: 768px) {
+
+    /* Top Bar */
+    .first-inner {
+        padding: 0 20px;
+    }
+
+    .jordan {
+        margin: 0;
+    }
+
+    /* Navbar */
+    .container {
+        padding: 0 20px;
+    }
+
+    /* Images Row */
+    .img-one,
+    .img-two {
+        width: 100%;
+        /* Stack images */
+    }
+
+    /* Hero Text */
+    .hero-text-section h1 {
+        font-size: 48px;
+    }
+
+    /* Promo Grid Stacking */
+    .promo-grid {
+        flex-direction: column;
+    }
+
+    .textbox {
+        width: 100%;
+        height: 400px;
+    }
+
+    /* Classics */
+    .classic-item {
+        width: calc(50% - 20px);
+    }
+
+    /* Footer */
+    .footer-links {
+        flex-direction: column;
+    }
+
+    .endbar {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
