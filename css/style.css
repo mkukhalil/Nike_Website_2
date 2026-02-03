@@ -2,12 +2,17 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Offset for sticky header */
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
     overflow-x: hidden;
-    /* Prevent horizontal scroll */
 }
 
 /* Common Container Utility */
@@ -51,6 +56,12 @@ body {
     display: inline-block;
     list-style-type: none;
     color: #111;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.toolbar ul li:hover {
+    color: #757575;
 }
 
 .toolbar li:not(:first-child)::before {
@@ -62,16 +73,28 @@ body {
 /* First Row End */
 
 /* Navigation/Header */
-.container {
+.container.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 40px;
-    max-width: 1440px;
-    margin: 0 auto;
+    max-width: 100%;
+    /* Changed to allow sticky full width */
     width: 100%;
     height: 60px;
-    /* Fixed height for navbar consistency */
+    background-color: white;
+    /* Ensure bg for sticky */
+    transition: all 0.3s ease;
+}
+
+.container.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 0 40px;
+    height: 70px;
 }
 
 .logo {
@@ -103,9 +126,26 @@ body {
     font-size: 16px;
 }
 
-a {
+.menu ul li a {
     text-decoration: none;
     color: black;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transition: width 0.3s;
+}
+
+.menu ul li a:hover::after {
+    width: 100%;
 }
 
 .search {
@@ -128,6 +168,12 @@ a {
     padding-left: 40px;
     /* Space for icon */
     font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.search input[type=text]:focus {
+    outline: none;
+    background-color: #E5E5E5;
 }
 
 .search-bar-wrapper .fa-magnifying-glass {
@@ -142,6 +188,18 @@ a {
     font-size: 24px;
     cursor: pointer;
     margin-left: 15px;
+    transition: transform 0.2s;
+}
+
+.search-icons i:hover {
+    transform: scale(1.1);
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 20px;
 }
 
 /* Generic Flex Rows */
@@ -149,17 +207,19 @@ a {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    /* Allow wrapping */
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
 }
 
 /* Images Row */
-.img-one,
+.img-one {
+    width: 50%;
+    display: flex;
+}
+
 .img-two {
     width: 50%;
-    /* Equal width or proportional */
 }
 
 .img-one img,
@@ -182,7 +242,6 @@ a {
 .hero-text-section h1 {
     font-size: 72px;
     font-family: 'Impact', sans-serif;
-    /* Fallback safe font */
     text-transform: uppercase;
     margin: 0;
     line-height: 0.9;
@@ -203,6 +262,12 @@ a {
     border: none;
     cursor: pointer;
     font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
 }
 
 /* Grid for Promo Boxes */
@@ -218,7 +283,6 @@ a {
 .textbox {
     flex: 1;
     height: 500px;
-    /* Keep fixed height for the look */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -227,6 +291,11 @@ a {
     justify-content: flex-end;
     align-items: flex-start;
     padding: 40px;
+    transition: transform 0.3s;
+}
+
+.textbox:hover {
+    /* Subtle zoom effect could be cool, but avoiding layout shift for now */
 }
 
 .textbox.bg-bags {
@@ -270,6 +339,11 @@ a {
     border: none;
     font-weight: 700;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.text-content button:hover {
+    background-color: #f0f0f0;
 }
 
 /* Full Width Banner */
@@ -304,16 +378,16 @@ a {
 .classic-item {
     background-color: #F5F5F5;
     width: calc(20% - 20px);
-    /* 5 items row */
     min-width: 200px;
     text-align: center;
     padding-bottom: 20px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .classic-item:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .classic-item img {
@@ -346,6 +420,7 @@ a {
     font-size: 12px;
     margin-bottom: 10px;
     cursor: pointer;
+    transition: color 0.2s;
 }
 
 .footer-column h4:hover {
@@ -378,8 +453,33 @@ a {
 /* Mobile Responsiveness */
 @media screen and (max-width: 960px) {
     .menu {
-        display: none;
-        /* Hide menu for now or replace with hamburger if implemented */
+        position: fixed;
+        right: -100%;
+        top: 60px;
+        /* Below navbar */
+        background-color: white;
+        width: 100%;
+        height: calc(100vh - 60px);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 40px;
+        transition: right 0.3s ease;
+        z-index: 999;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu.active {
+        right: 0;
+    }
+
+    .menu ul {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .hamburger {
+        display: block;
     }
 
     .classic-item {
@@ -403,11 +503,15 @@ a {
         padding: 0 20px;
     }
 
+    .search input[type=text] {
+        display: none;
+        /* Hide search bar on really small screens if needed, or keep it */
+    }
+
     /* Images Row */
     .img-one,
     .img-two {
         width: 100%;
-        /* Stack images */
     }
 
     /* Hero Text */
@@ -438,5 +542,283 @@ a {
     .endbar {
         flex-direction: column;
         gap: 10px;
+    }
+}
+
+/* --- Sign In Page Styles --- */
+.login-page {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    min-height: 60vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+.login-logo {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    font-family: 'Anton', sans-serif;
+    /* Or Impact/Arial Bold */
+    font-size: 28px;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 40px;
+    padding: 10px 15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.input-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #8d8d8d;
+}
+
+.input-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.input-options a {
+    color: #8d8d8d;
+    text-decoration: underline;
+}
+
+.btn-signin {
+    background-color: black;
+    color: white;
+    height: 40px;
+    border-radius: 3px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.btn-signin:hover {
+    background-color: #333;
+}
+
+.join-us {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #8d8d8d;
+}
+
+.join-us a {
+    color: black;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* --- Cart Page Styles --- */
+.cart-page {
+    padding: 40px 20px;
+    background-color: white;
+}
+
+.cart-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.cart-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.cart-items {
+    flex: 2;
+}
+
+.cart-item {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cart-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h3 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.cart-item-details p {
+    margin: 0 0 5px 0;
+    color: #757575;
+    font-size: 14px;
+}
+
+.cart-item-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.cart-item-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #757575;
+    padding: 0;
+}
+
+.cart-item-actions button:hover {
+    color: black;
+}
+
+.cart-summary {
+    flex: 1;
+    min-width: 300px;
+}
+
+.summary-box {
+    padding: 20px;
+}
+
+.summary-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.summary-row.total {
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px 0;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.btn-checkout {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-checkout:hover {
+    background-color: #333;
+}
+
+/* --- Wishlist Page Styles --- */
+.wishlist-page {
+    padding: 40px 20px;
+}
+
+.wishlist-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.wishlist-header h1 {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+/* Reuse classic-grid for wishlist items but ensure it wraps nicely */
+.wishlist-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.wishlist-item {
+    width: calc(33.333% - 20px);
+    /* 3 items per row default */
+    background-color: #F5F5F5;
+    text-align: center;
+    padding-bottom: 40px;
+    /* More space for buttons */
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.wishlist-item img {
+    width: 100%;
+    height: auto;
+}
+
+.wishlist-item h3 {
+    margin-top: 15px;
+}
+
+.btn-add-to-bag {
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .cart-container {
+        flex-direction: column;
+    }
+
+    .wishlist-item {
+        width: calc(50% - 10px);
     }
 }
